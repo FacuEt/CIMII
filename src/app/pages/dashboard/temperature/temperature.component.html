@@ -1,0 +1,21 @@
+<nb-card size="large">
+  <nb-tabset fullWidth>
+    <nb-tab tabTitle="Capacidad del estacionamiento">
+
+      <div class="slider-container">
+        <ngx-temperature-dragger [(value)]="humidity" (power)="humidityOff = !$event"
+                                 [min]="0" [max]="100" [disableArcColor]="colors.layoutBg"
+                                 [fillColors]="colors.temperature">
+
+          <div class="slider-value-container"  [ngClass]="{ 'off': humidityOff }">
+            <div class="value humidity">
+              {{ humidityOff ? '--' : (humidity | ngxRound) }}
+            </div>
+            Ocupado
+          </div>
+        </ngx-temperature-dragger>
+      </div>
+
+    </nb-tab>
+  </nb-tabset>
+</nb-card>
