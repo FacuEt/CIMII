@@ -46,8 +46,8 @@ export class DashboardComponent implements OnDestroy {
   commonStatusCardsSet: CardSettings[] = [
     this.lightCard,
     this.rollerShadesCard,
-    this.wirelessAudioCard,
-    this.coffeeMakerCard,
+    //this.wirelessAudioCard,
+    //this.coffeeMakerCard,
   ];
 
   statusCardsByThemes: {

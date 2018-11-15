@@ -11,4 +11,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-tables',
     link: '/pages/tables/smart-table',
   },
+  {
+      title: 'Reportes',
+      icon: 'nb-bar-chart',
+      link: '/pages/charts/chartjs',
+  },
 ];

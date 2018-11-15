@@ -19,10 +19,10 @@ export class ChartjsPieComponent implements OnDestroy {
       const chartjs: any = config.variables.chartjs;
 
       this.data = {
-        labels: ['Download Sales', 'In-Store Sales', 'Mail Sales'],
+        labels: ['Ocupado', 'Libre'],
         datasets: [{
-          data: [300, 500, 100],
-          backgroundColor: [colors.primaryLight, colors.infoLight, colors.successLight],
+          data: [56, 44],
+          backgroundColor: [colors.primaryLight, colors.successLight],
         }],
       };
 
