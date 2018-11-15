@@ -26,13 +26,13 @@ export class DashboardComponent implements OnDestroy {
     type: 'primary',
   };
   rollerShadesCard: CardSettings = {
-    title: 'Barreras',
-    iconClass: 'nb-roller-shades',
+    title: 'Barrera de entrada',
+    iconClass: 'nb-locked',
     type: 'success',
   };
   wirelessAudioCard: CardSettings = {
-    title: 'Wireless Audio',
-    iconClass: 'nb-audio',
+    title: 'Barrera de salida',
+    iconClass: 'nb-locked',
     type: 'info',
   };
   coffeeMakerCard: CardSettings = {
@@ -46,7 +46,7 @@ export class DashboardComponent implements OnDestroy {
   commonStatusCardsSet: CardSettings[] = [
     this.lightCard,
     this.rollerShadesCard,
-    //this.wirelessAudioCard,
+    this.wirelessAudioCard,
     //this.coffeeMakerCard,
   ];
 

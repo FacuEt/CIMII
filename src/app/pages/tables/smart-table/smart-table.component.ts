@@ -43,7 +43,7 @@ export class SmartTableComponent {
         type: 'string',
       },
       username: {
-        title: 'Abono Mensual',
+        title: 'Abonado Mensual',
         type: 'string',
       },
       email: {
