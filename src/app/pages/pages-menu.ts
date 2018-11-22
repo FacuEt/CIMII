@@ -7,11 +7,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
-    title: 'Cocheras',
-    icon: 'nb-tables',
-    link: '/pages/tables/smart-table',
-  },
-  {
       title: 'Reportes',
       icon: 'nb-bar-chart',
       link: '/pages/charts/chartjs',
