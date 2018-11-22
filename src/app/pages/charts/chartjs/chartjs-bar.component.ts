@@ -19,11 +19,13 @@ export class ChartjsBarComponent implements OnDestroy {
       const chartjs: any = config.variables.chartjs;
 
       this.data = {
-        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'],
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17',
+            '18', '19', '20', '21', '22'],
         datasets: [{
-          data: [9, 9, 9.2, 9.1, 9.1, 9.1, 9.5, 10, 10, 10, 10, 10.6, 10.7, 10.7],
-          label: 'Noviembre 2018',
+            data: [2, 3, 1, 0, 0, 2, 1, 2, 1, 6, 0, 1, 2, 0, 1, 3, 7, 2, 1, 0, 0, 3],
+            label: 'Noviembre 2018',
             backgroundColor: NbColorHelper.hexToRgbA(colors.infoLight, 0.8),
+            borderColor: colors.primary,
         }],
       };
 

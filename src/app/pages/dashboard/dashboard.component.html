@@ -8,6 +8,24 @@
 </div>
 
 <div class="row">
+  <div class="col-xxxl-3 col-md-3" *ngFor="let infoCard of infoCards">
+    <nb-card size="small">
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="{{infoCard.title}}">
+          <div style="padding: 20px;font-size: 100px;text-align: center;" [ngStyle]="{color: infoCard.color}">
+            {{infoCard.value}}
+          </div>
+          <div style="text-align: center;">
+            {{infoCard.description}}
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+
+  </div>
+</div>
+
+<div class="row">
   <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
     <ngx-temperature></ngx-temperature>
   </div>
@@ -21,6 +39,10 @@
   <div class="col-xxxl-12 col-xxl-12 col-md-7">
     <ngx-security-cameras></ngx-security-cameras>
   </div>
+</div>
 
-
+<div class="row">
+  <div class="col-xxxl-12 col-xxl-12 col-md-12">
+    <ngx-rooms></ngx-rooms>
+  </div>
 </div>

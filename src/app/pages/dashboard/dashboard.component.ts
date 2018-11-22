@@ -6,91 +6,135 @@ import { ModalComponent } from '../ui-features/modals/modal/modal.component';
 
 
 interface CardSettings {
-  title: string;
-  iconClass: string;
-  type: string;
+    title: string;
+    iconClass: string;
+    type: string;
 }
 
 @Component({
-  selector: 'ngx-dashboard',
-  styleUrls: ['./dashboard.component.scss'],
-  templateUrl: './dashboard.component.html',
+    selector: 'ngx-dashboard',
+    styleUrls: ['./dashboard.component.scss'],
+    templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnDestroy {
 
-  private alive = true;
+    private alive = true;
 
-  lightCard: CardSettings = {
-    title: 'Luces pasillos',
-    iconClass: 'nb-lightbulb',
-    type: 'primary',
-  };
-  rollerShadesCard: CardSettings = {
-    title: 'Barrera de entrada',
-    iconClass: 'nb-locked',
-    type: 'success',
-  };
-  wirelessAudioCard: CardSettings = {
-    title: 'Barrera de salida',
-    iconClass: 'nb-locked',
-    type: 'info',
-  };
-  coffeeMakerCard: CardSettings = {
-    title: 'Coffee Maker',
-    iconClass: 'nb-coffee-maker',
-    type: 'warning',
-  };
-
-  statusCards: string;
-
-  commonStatusCardsSet: CardSettings[] = [
-    this.lightCard,
-    this.rollerShadesCard,
-    this.wirelessAudioCard,
-    //this.coffeeMakerCard,
-  ];
-
-  statusCardsByThemes: {
-    default: CardSettings[];
-    cosmic: CardSettings[];
-    corporate: CardSettings[];
-  } = {
-    default: this.commonStatusCardsSet,
-    cosmic: this.commonStatusCardsSet,
-    corporate: [
-      {
-        ...this.lightCard,
-        type: 'warning',
-      },
-      {
-        ...this.rollerShadesCard,
+    lightCard: CardSettings = {
+        title: 'Luces pasillos',
+        iconClass: 'nb-lightbulb',
         type: 'primary',
-      },
-      {
-        ...this.wirelessAudioCard,
-        type: 'danger',
-      },
-      {
-        ...this.coffeeMakerCard,
-        type: 'secondary',
-      },
-    ],
-  };
+    };
+    rollerShadesCard: CardSettings = {
+        title: 'Barrera de entrada',
+        iconClass: 'nb-locked',
+        type: 'success',
+    };
+    wirelessAudioCard: CardSettings = {
+        title: 'Barrera de salida',
+        iconClass: 'nb-locked',
+        type: 'info',
+    };
+    coffeeMakerCard: CardSettings = {
+        title: 'Coffee Maker',
+        iconClass: 'nb-coffee-maker',
+        type: 'warning',
+    };
 
-  constructor(private themeService: NbThemeService, private modalService: NgbModal) {
-    this.themeService.getJsTheme()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe(theme => {
-        this.statusCards = this.statusCardsByThemes[theme.name];
-    });
-  }
+    statusCards: string;
 
-  showLargeModal() {
-    const activeModal = this.modalService.open(ModalComponent, { size: 'lg', container: 'nb-layout' });
+    commonStatusCardsSet: CardSettings[] = [
+        this.lightCard,
+        this.rollerShadesCard,
+        this.wirelessAudioCard,
+    ];
 
-    activeModal.componentInstance.modalHeader = 'Large Modal';
-  }
-  ngOnDestroy() {
-    this.alive = false;
-  }
+    infoCards = [
+        {
+            title: 'Vehículos esperando en barrera de entrada',
+            value: 2,
+            description: 'vehículos',
+            color: '#fffc',
+        },
+        {
+            title: 'Vehículos esperando en barrera de salida',
+            value: 0,
+            description: 'vehículos',
+            color: '#fffc',
+        },
+        {
+            title: 'Alarmas lanzadas en el día',
+            value: 3,
+            description: 'alarmas',
+            color: '#f00c',
+        },
+        {
+            title: 'Vehículos camino a la cochera',
+            value: 1,
+            description: 'vehículo',
+            color: '#fffc',
+        },
+        {
+            title: 'Vehículos estacionados',
+            value: 39,
+            description: 'vehículos',
+            color: '#fffc',
+        },
+        {
+            title: 'Vehículos abonados en camino a la salida',
+            value: 0,
+            description: 'vehículos',
+            color: '#fffc',
+        },
+        {
+            title: 'Vehículos que abandonaron la cochera y no abonaron',
+            value: 1,
+            description: 'vehículos',
+            color: '#f00c',
+        },
+    ];
+
+    statusCardsByThemes: {
+        default: CardSettings[];
+        cosmic: CardSettings[];
+        corporate: CardSettings[];
+    } = {
+        default: this.commonStatusCardsSet,
+        cosmic: this.commonStatusCardsSet,
+        corporate: [
+            {
+                ...this.lightCard,
+                type: 'warning',
+            },
+            {
+                ...this.rollerShadesCard,
+                type: 'primary',
+            },
+            {
+                ...this.wirelessAudioCard,
+                type: 'danger',
+            },
+            {
+                ...this.coffeeMakerCard,
+                type: 'secondary',
+            },
+        ],
+    };
+
+    constructor(private themeService: NbThemeService, private modalService: NgbModal) {
+        this.themeService.getJsTheme()
+            .pipe(takeWhile(() => this.alive))
+            .subscribe(theme => {
+                this.statusCards = this.statusCardsByThemes[theme.name];
+            });
+    }
+
+    showLargeModal() {
+        const activeModal = this.modalService.open(ModalComponent, { size: 'lg', container: 'nb-layout' });
+
+        activeModal.componentInstance.modalHeader = 'Large Modal';
+    }
+    ngOnDestroy() {
+        this.alive = false;
+    }
 }

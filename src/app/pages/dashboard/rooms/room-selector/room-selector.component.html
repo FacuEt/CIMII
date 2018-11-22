@@ -75,12 +75,19 @@
       <path class="stroked-element" [attr.d]="strokedArea.d" *ngFor="let strokedArea of roomSvg.stokedAreas"/>
     </g>
 
-    <g [attr.id]="room.id" [class.selected-room]="selectedRoom == room.id" *ngFor="let room of sortedRooms">
+    <g [attr.id]="room.id" [class.selected-room]="room.state == 'Libre'" *ngFor="let room of sortedRooms">
       <path class="room-bg" (click)="selectRoom(room.id)" [attr.d]="room.area.d" [style.filter]="isIE || isFirefox ? 'inherit': ''" />
       <path class="room-border" [attr.d]="room.border.d" />
       <path class="room-border room-border-glow" [attr.d]="room.border.d" [style.filter]="isIE || isFirefox ? 'inherit': ''" />
       <text class="room-text" (click)="selectRoom(room.id)" text-anchor="middle"
-            [attr.x]="room.name.x" [attr.y]="room.name.y">{{room.name.text}}</text>
+            [attr.x]="room.name.x" [attr.y]="room.name.y">{{room.name.text}}
+      </text>
+      <text class="room-text" (click)="selectRoom(room.id)" text-anchor="middle"
+            [attr.x]="room.name.x" [attr.y]="room.name.y + 20">{{room.state}}
+      </text>
+      <text class="room-text" (click)="selectRoom(room.id)" text-anchor="middle"
+            [attr.x]="room.name.x" [attr.y]="room.name.y + 40">{{room.patente}}
+      </text>
     </g>
   </svg>
 </div>
