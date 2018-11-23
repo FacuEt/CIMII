@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService, NbColorHelper } from '@nebular/theme';
+import * as moment from 'moment';
 
 @Component({
   selector: 'ngx-chartjs-radar',
@@ -17,20 +18,22 @@ export class ChartjsRadarComponent implements OnDestroy {
 
       const colors: any = config.variables;
       const chartjs: any = config.variables.chartjs;
-
+      const date = new Date();
       this.data = {
-        labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+        labels: ['Auto', 'Trafic', 'Pick up', 'Bicicleta', 'Moto' ],
         datasets: [{
-          data: [65, 59, 90, 81, 56, 55, 40],
-          label: 'Series A',
-          borderColor: colors.danger,
-          backgroundColor: NbColorHelper.hexToRgbA(colors.dangerLight, 0.5),
-        }, {
-          data: [28, 48, 40, 19, 96, 27, 100],
-          label: 'Series B',
+          data: [105, 32, 88, 4, 28],
+          label: moment().locale('es').subtract(1, 'month').format('MMMM YYYY'),
           borderColor: colors.warning,
           backgroundColor: NbColorHelper.hexToRgbA(colors.warningLight, 0.5),
-        }],
+        },
+        {
+          data: [110, 40, 90, 9, 35],
+          label: moment().locale('es').format('MMMM YYYY'),
+          borderColor: colors.danger,
+          backgroundColor: NbColorHelper.hexToRgbA(colors.dangerLight, 0.5),
+        },
+        ],
       };
 
       this.options = {
