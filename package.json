@@ -32,7 +32,8 @@
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "build:heroku": "npm run build:prod && node server.js"
+    "postinstall": "ng build --aot -prod",
+    "build:heroku": "node server.js"
   },
   "dependencies": {
     "@agm/core": "1.0.0-beta.2",
@@ -40,6 +41,7 @@
     "@angular/cdk": "^6.4.7",
     "@angular/common": "6.0.0",
     "@angular/compiler": "6.0.0",
+    "@angular/cli": "6.0.0",
     "@angular/compiler-cli": "6.0.0",
     "@angular/core": "6.0.0",
     "@angular/forms": "6.0.0",
