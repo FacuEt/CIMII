@@ -55,18 +55,14 @@ export class DashboardComponent implements OnDestroy {
             value: 2,
             description: 'vehículos',
             color: '#fffc',
+            tiempoEspera: 'Tiempo promedio de espera 180s',
         },
         {
             title: 'Vehículos esperando en barrera de salida',
             value: 0,
             description: 'vehículos',
             color: '#fffc',
-        },
-        {
-            title: 'Alarmas lanzadas en el día',
-            value: 3,
-            description: 'alarmas',
-            color: '#f00c',
+            tiempoEspera: 'Tiempo promedio de espera 59s',
         },
         {
             title: 'Vehículos camino a la cochera',

@@ -18,6 +18,9 @@
           <div style="text-align: center;">
             {{infoCard.description}}
           </div>
+          <div *ngIf="infoCard.tiempoEspera" style="text-align: center;padding: 10px; ">
+            {{infoCard.tiempoEspera}}
+          </div>
         </nb-tab>
       </nb-tabset>
     </nb-card>

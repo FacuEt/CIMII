@@ -4,19 +4,19 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'ngx-modal',
   template: `
-    <div class="modal-header">
-      <span>{{ modalHeader }}</span>
-      <button class="close" aria-label="Close" (click)="closeModal()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      {{ modalContent }}
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-md btn-primary" (click)="closeModal()">Save changes</button>
-    </div>
-  `,
+      <div class="modal-header"
+           style="background-color: #ff0000b3;color: white;border-color: #ff0000e6;text-align: center; font-size: 25px;"
+      >
+          ¡ATENCIÓN!
+          <button class="close" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body" style="background-color: #ff0000b3;color: white;border-color: #ff0000e6;font-size: 22px;">
+          El vehículo ubicado en la cochera A2 se retiró de la misma sin abonar su factura.
+      </div>
+      <div class="modal-footer" style="background-color: #ff0000b3;color: white;border-color: #ff0000e6;">
+          <button class="btn btn-md btn-primary" (click)="closeModal()">Aceptar</button>
+      </div>    `,
 })
 export class ModalComponent {
 
