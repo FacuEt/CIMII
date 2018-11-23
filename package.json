@@ -33,7 +33,7 @@
     "prepush": "npm run lint:ci",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
     "preinstall": "npm install -g http-server",
-    "build:heroku": "npm build:prod && http-server dist/"
+    "build:heroku": "npm run build:prod && node server.js"
   },
   "dependencies": {
     "@agm/core": "1.0.0-beta.2",
